@@ -54,12 +54,16 @@ class AllProblems extends React.Component {
                                                             </button>
                                                         </form>
                                                         {this.props.solutions.map((solution) => {
+                                                            console.log(solution.solution)
                                                             console.log(item.id.toString())
-                                                            console.log(solution.id.toString())
                                                             if(solution.id.toString() === item.id.toString()) {
-                                                                console.log(solution.id)
                                                                 return (
+                                                                    <div onClick={(e) => {
+                                                                        e.preventDefault();
+                                                                        this.props.confirmSolution(item.id.toString(), solution.id.toString())
+                                                                    }}>
                                                                    <h1>{solution.solution}</h1>
+                                                                    </div>
                                                                 );
                                                             }
                                                         })}
@@ -74,7 +78,7 @@ class AllProblems extends React.Component {
 
                         );
                     })}
-                <h1 className="display-2">Kurwa </h1>
+                <h1 className="display-2">Nie wykonane </h1>
                 {this.props.problemsFinished.map((item, i) => {
                     return(
                         <div className="dropdownItem">
@@ -99,26 +103,24 @@ class AllProblems extends React.Component {
                                                 e.preventDefault();
                                                 this.props.sendSolution(item.id.toString(), this.text.value)
                                             }}>
-                                                            <textarea className="form-control" ref={(input) => this.text = input}
-                                                                      id="exampleFormControlTextarea1"
-                                                                      rows="6"></textarea>
-                                                <button type="submit" className="btn btn-primary">Send solution
-                                                </button>
+
+
                                             </form>
-                                            <div className="card text-center">
-                                                <div className="card-header">
-                                                    Solutions
-                                                </div>
-                                                <div className="card-body">
-                                                    <h2 className="">{}</h2>
-                                                    <p className="card-text">With supporting text below as a
-                                                        natural lead-in to additional content.</p>
-                                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                                </div>
-                                                <div className="card-footer text-muted">
-                                                    2 days ago
-                                                </div>
-                                            </div>
+                                            {this.props.solutions.map((solution) => {
+                                                console.log(solution.solution)
+                                                console.log(item.id.toString())
+                                                if(solution.id.toString() === item.id.toString()) {
+                                                    return (
+                                                        <div onClick={(e) => {
+                                                            e.preventDefault();
+                                                            this.props.confirmSolution(item.id.toString(), solution.id.toString())
+                                                        }}>
+                                                            <h1>{solution.solution}</h1>
+                                                        </div>
+                                                    );
+                                                }
+                                            })}
+
                                         </div>
 
                                     </Accordion.Collapse>

@@ -16,7 +16,7 @@ class YourTokens extends React.Component {
             <Router>
             <div>
                 <div className="jumbotron container mb-0">
-                    <h1 className="display-4 text-center ">Hi {this.props.account}!</h1><h1 className="display-5"> <br />Your ballance is {this.props.balance} STE </h1>
+                    <h1 className="display-4 text-center ">Hi {this.props.account}!</h1><h1 className="display-5"> <br />Your ballance is {this.props.balance} HMP </h1>
                     <p className="lead font-weight-bolder">There you can safely buy, send and do anything you want with your local tokens</p>
                     <hr className="my-4" />
                     <p className="lead font-weight-bolder">There is also  <span className="text-danger">{this.props.supply} </span> tokens left</p>

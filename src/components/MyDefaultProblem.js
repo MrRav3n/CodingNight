@@ -9,7 +9,7 @@ class MyDefaultProblem extends React.Component {
 
             <div>
                 <div className="jumbotron container mb-0">
-                    <h1 className="display-4 text-center ">Hi {this.props.account}!</h1><h1 className="display-5"> <br />Your ballance is {this.props.balance} STE </h1>
+                    <h1 className="display-4 text-center ">Hi {this.props.account}!</h1><h1 className="display-5"> <br />Your ballance is {this.props.balance} HMP </h1>
                     <p className="lead font-weight-bolder">There you can add, search for and solve others problems.</p>
                     <hr className="my-4" />
                 </div>

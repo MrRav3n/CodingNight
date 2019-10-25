@@ -19,7 +19,6 @@ class App extends Component {
         await this.loadWeb3();
         await this.loadContract();
         await this.loadAccount();
-        await this.readData();
         window.ethereum.on('accountsChanged', async (accounts)  => {
           await this.loadAccount();
         })
@@ -45,7 +44,7 @@ class App extends Component {
         let balance = await this.state.contract.methods.balanceOf(account).call();
         let supply = await this.state.contract.methods.tokensLeft().call()
         balance = balance / 1000000000000000000;
-
+        this.readData();
 
         //checking and setting hours:minutes:secound to next color
 
@@ -137,8 +136,17 @@ class App extends Component {
             }
         });
     }
+    async confirmSolution(_id, _solution) {
+        await this.state.contract.methods.confirmSolution(_id, _solution).send({from: this.state.account}, (error, result) => {
+            if(result!=null){
+                this.checkBlockNumber();
+            }
+        });
+    }
     async readData() {
-
+        this.setState({ problemsUnFinished: [],
+            problemsFinished: [],
+            solutions: []});
         let items = await this.state.contract.methods.problemsCount().call();
         const blockNumber = await window.web3.eth.getBlockNumber();
 
@@ -146,15 +154,15 @@ class App extends Component {
         timeStamp=timeStamp.timestamp;
 
         items=items.toNumber();
-
+        let solutionsCount = await this.state.contract.methods.solutionsCount.call();
+        solutionsCount=solutionsCount.toNumber()
+        for(let z=0; z<solutionsCount; z++) {
+            let solutions = await this.state.contract.methods.solutions(z).call()
+            this.setState({solutions : [...this.state.solutions, solutions]});
+        }
         for(let i=0; i<items; i++) {
             let item = await this.state.contract.methods.problems(i).call();
-            let solutionsCount = await this.state.contract.methods.solutionsCount.call();
-            solutionsCount=solutionsCount.toNumber()
-            for(let z=0; z<solutionsCount; z++) {
-                let solutions = await this.state.contract.methods.solutions(z).call()
-                this.setState({solutions : [...this.state.solutions, solutions]});
-            }
+
             if(item.isCompleted === false && item.time>=timeStamp) {
                 this.setState({problemsUnFinished : [...this.state.problemsUnFinished, item]});
             }
@@ -164,7 +172,7 @@ class App extends Component {
 
 
         }
-
+        console.log(this.state.solutions)
 
     }
 
@@ -206,6 +214,7 @@ class App extends Component {
                                       problemsUnFinished={this.state.problemsUnFinished}
                                       sendSolution={this.sendSolution.bind(this)}
                                       solutions={this.state.solutions}
+                                      confirmSolution={this.confirmSolution.bind(this)}
                             />
                           </Route>
                           <Route path="/" component={MyDefaultComponent} />

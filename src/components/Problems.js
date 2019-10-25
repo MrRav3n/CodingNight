@@ -25,10 +25,14 @@ class Problems extends React.Component {
                                         problemsFinished={this.props.problemsFinished}
                                         problemsUnFinished={this.props.problemsUnFinished}
                                         solutions={this.props.solutions}
+                                        confirmSolution={this.props.confirmSolution}
                         />
                     </Route>
                     <Route path="/">
-                    <MyDefaultProblem   account={this.props.account}/>
+                    <MyDefaultProblem   account={this.props.account}
+                                        balance={this.props.balance}
+
+                    />
                     </Route>
                 </Switch>
 
