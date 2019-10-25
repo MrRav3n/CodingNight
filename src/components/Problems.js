@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import AddProblem from "./ProblemsComponents/AddProblem";
 import MyDefaultProblem from "./MyDefaultProblem";
+import AllProblems from "./ProblemsComponents/AllProblems";
 //Tokens part of the website
 
 class Problems extends React.Component {
@@ -19,6 +20,11 @@ class Problems extends React.Component {
                     <AddProblem buyTokens={this.props.buyTokens}
                                 addProblem={this.props.addProblem}/>
                 </Route>
+                    <Route exact path="/AllProblems">
+                        <AllProblems buyTokens={this.props.buyTokens}
+                                    addProblem={this.props.addProblem}
+                                    problems={this.props.problems}/>
+                    </Route>
                     <Route path="/">
                     <MyDefaultProblem account={this.props.account}/>
                     </Route>

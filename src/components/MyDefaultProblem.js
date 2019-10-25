@@ -19,14 +19,8 @@ class MyDefaultProblem extends React.Component {
                             <Link to="/AddProblem" className="col-12 col-md d-inline-block bg-success text-white rounded m-1 text-center">
                                 <h1>Add Problem</h1>
                             </Link>
-                            <Link to="/TransferTokens" className="col-12 col-md d-inline-block bg-primary text-white rounded m-1 text-center">
-                                <h1>Transfer Tokens</h1>
-                            </Link>
-                            <Link to="/TransferFromTokens" className="col-12 col-md d-inline-block bg-danger text-white rounded m-1 text-center">
-                                <h1>Transfer From</h1>
-                            </Link>
-                            <Link to="/GiveAlowance" className="col-12 col-md d-inline-block bg-warning text-white rounded m-1 text-center" >
-                                <h1 >Give Permit</h1>
+                            <Link to="/AllProblems" className="col-12 col-md d-inline-block bg-primary text-white rounded m-1 text-center">
+                                <h1>Check All Problems</h1>
                             </Link>
                         </>
                     </div>

@@ -19,6 +19,7 @@ class App extends Component {
         await this.loadWeb3();
         await this.loadContract();
         await this.loadAccount();
+        await this.readData();
         window.ethereum.on('accountsChanged', async (accounts)  => {
           await this.loadAccount();
         })
@@ -127,13 +128,24 @@ class App extends Component {
                 this.checkBlockNumber();
             }} )
     }
+    async readData() {
+        let items = await this.state.contract.methods.problemsCount().call();
+        items=items.toNumber();
+        console.log(items)
+        for(let i=0; i<items; i++) {
+            let item = await this.state.contract.methods.problems(i).call();
+            this.setState({problems : [...this.state.problems, item]})
+        }
+        console.log(this.state.problems);
+    }
 
 
     constructor(props) {
         super(props);
         this.state = {
             account: null,
-            loading: true
+            loading: true,
+            problems: [],
         }
     }
 
@@ -159,6 +171,7 @@ class App extends Component {
                             <Problems balance={this.state.balance}
                                       account={this.state.accountShort}
                                       addProblem={this.addProblem.bind(this)}
+                                      problems={this.state.problems}
                             />
                           </Route>
                           <Route path="/" component={MyDefaultComponent} />
