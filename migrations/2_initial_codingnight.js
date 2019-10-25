@@ -1,5 +1,5 @@
-const Migrations = artifacts.require("Migrations");
+const CodingNight = artifacts.require("CodingNight");
 
 module.exports = function(deployer) {
-    deployer.deploy(Migrations);
+    deployer.deploy(CodingNight);
 };
