@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dropdown, DropdownButton, FormControl, InputGroup } from 'react-bootstrap';
-
+import {Link} from "react-router-dom";
 //Transfering tokens from one account to another
 class AllProblems extends React.Component {
 
@@ -28,12 +28,13 @@ class AllProblems extends React.Component {
                     <tbody>
                     {this.props.problems.map((item, i) => {
                         return(
-                                    <tr key={i}>
-                                        <th>{item.id.toString()}</th>
-                                        <td>{item.title.toString()}</td>
-                                        <td>{item.ammount.toString()}</td>
-                                        <td>{item.time.toString()}</td>
-                                    </tr>
+                            <div className="jumbotron">
+                                <h1 className="display-4">{item.title.toString()}</h1>
+                                <p className="lead">Question category: {item.category.toString()}. Reward: {(item.ammount/1000000000000000000).toString()}</p>
+                                <hr className="my-4"/>
+                                    <p>{item.content.toString()}.</p>
+                                    <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                            </div>
                         );
                     })}
 

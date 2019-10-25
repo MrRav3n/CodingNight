@@ -130,11 +130,19 @@ class App extends Component {
     }
     async readData() {
         let items = await this.state.contract.methods.problemsCount().call();
+        const blockNumber = await window.web3.eth.getBlockNumber();
+        console.log(blockNumber)
+        let timeStamp = await window.web3.eth.getBlock(blockNumber);
+        timeStamp=timeStamp.timestamp;
+        console.log(timeStamp);
         items=items.toNumber();
         console.log(items)
         for(let i=0; i<items; i++) {
             let item = await this.state.contract.methods.problems(i).call();
-            this.setState({problems : [...this.state.problems, item]})
+            if(item.isCompleted === false && item.time>=timeStamp) {
+                this.setState({problems : [...this.state.problems, item]});
+            }
+
         }
         console.log(this.state.problems);
     }

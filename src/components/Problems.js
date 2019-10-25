@@ -12,7 +12,6 @@ import AllProblems from "./ProblemsComponents/AllProblems";
 
 class Problems extends React.Component {
     render() {
-        console.log(this.props.account)
         return (
             <Router>
 
