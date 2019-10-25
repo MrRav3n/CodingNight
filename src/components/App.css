@@ -3,5 +3,26 @@ body {
     background: #b92b27;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.dropdownItem {
+    font-size: 25px;
+    text-decoration: none;
+    color: #f85a23;
+}
+
+.dropdownItem:hover {
+    text-decoration: none;
+    color: #933b17;
+}
+.dropdownItem:focus {
+    text-decoration: none;
+    border: #933b17 solid 2px;
+}
+.rowMain {
+    font-weight: bold;
+    background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 }
