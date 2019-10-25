@@ -37,7 +37,7 @@ contract CodingNight is Token{
         problems[problemsCount].title=_title;
         problems[problemsCount].ammount=_ammount;
         problems[problemsCount].ammountSave=_ammountSave;
-        problems[problemsCount].time=_time;
+        problems[problemsCount].time=_time+block.timestamp;
         problems[problemsCount].problem=_problem;
         problems[problemsCount].category=_category;
         problems[problemsCount].isCompleted= false;
@@ -52,6 +52,7 @@ contract CodingNight is Token{
         solutionsCount[_id]++;
     }
     function confirmSolution(uint _idProblem, uint _idSolution) public {
+        require(block.timestamp< problems[_idProblem].time);
         require( problems[_idProblem].owner == msg.sender);
         require( problems[_idProblem].isCompleted == false);
         problems[_idProblem].isCompleted = true;
