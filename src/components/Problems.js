@@ -12,20 +12,23 @@ import AllProblems from "./ProblemsComponents/AllProblems";
 
 class Problems extends React.Component {
     render() {
+
         return (
             <Router>
 
                 <Switch> <Route exact path="/AddProblem">
-                    <AddProblem buyTokens={this.props.buyTokens}
-                                addProblem={this.props.addProblem}/>
+                    <AddProblem         addProblem={this.props.addProblem}/>
                 </Route>
                     <Route exact path="/AllProblems">
-                        <AllProblems buyTokens={this.props.buyTokens}
-                                    addProblem={this.props.addProblem}
-                                    problems={this.props.problems}/>
+                        <AllProblems    addProblem={this.props.addProblem}
+                                        sendSolution={this.props.sendSolution}
+                                        problemsFinished={this.props.problemsFinished}
+                                        problemsUnFinished={this.props.problemsUnFinished}
+                                        solutions={this.props.solutions}
+                        />
                     </Route>
                     <Route path="/">
-                    <MyDefaultProblem account={this.props.account}/>
+                    <MyDefaultProblem   account={this.props.account}/>
                     </Route>
                 </Switch>
 

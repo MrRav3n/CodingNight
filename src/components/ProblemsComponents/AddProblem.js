@@ -10,6 +10,7 @@ class AddProblem extends React.Component {
         }
     }
     render() {
+        console.log(this.props.addProblem)
         return(
             <div className="jumbotron container">
                 <h1 className="display-4 text-center font-weight-bolder">Add new problem.</h1>

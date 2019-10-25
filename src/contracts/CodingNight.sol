@@ -16,12 +16,13 @@ contract CodingNight is Token{
         uint ammountSave;
     }
     struct ProblemsSolution {
+        uint id;
         address sender;
         string solution;
     }
     mapping(uint => Problem) public problems;
-    mapping(uint => uint) public solutionsCount;
-    mapping(uint => mapping(uint => ProblemsSolution)) public problemsSolutions;
+    uint public solutionsCount;
+    mapping(uint => ProblemsSolution) public solutions;
     function transferProblem(address to, uint tokens) public returns (bool) {
         balances[to] += tokens;
         balances[mainPerson] -= tokens;
@@ -47,16 +48,17 @@ contract CodingNight is Token{
     }
     function sendSolution(uint _id, string memory _solution) public {
         require(_id>=0 && _id<problemsCount);
-        problemsSolutions[_id][solutionsCount[_id]].sender=msg.sender;
-        problemsSolutions[_id][solutionsCount[_id]].solution=_solution;
-        solutionsCount[_id]++;
+        solutions[solutionsCount].id = _id;
+        solutions[solutionsCount].sender = msg.sender;
+        solutions[solutionsCount].solution = _solution;
+        solutionsCount++;
     }
     function confirmSolution(uint _idProblem, uint _idSolution) public {
         require(block.timestamp< problems[_idProblem].time);
         require( problems[_idProblem].owner == msg.sender);
         require( problems[_idProblem].isCompleted == false);
         problems[_idProblem].isCompleted = true;
-        transferProblem(problemsSolutions[_idProblem][solutionsCount[_idSolution]].sender, problems[_idProblem].ammount);
+        transferProblem(solutions[_idSolution].sender, problems[_idProblem].ammount);
         transferProblem(problems[_idProblem].owner, problems[_idProblem].ammountSave);
     }
 

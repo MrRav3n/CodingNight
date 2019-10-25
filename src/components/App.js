@@ -107,6 +107,8 @@ class App extends Component {
             });
         }
 
+
+
     //Function that checks if transaction is done
     async checkBlockNumber() {
         this.setState({loading:true});
@@ -128,23 +130,42 @@ class App extends Component {
                 this.checkBlockNumber();
             }} )
     }
+    async sendSolution(_id, _solution) {
+        await this.state.contract.methods.sendSolution(_id, _solution).send({from: this.state.account}, (error, result) => {
+            if(result!=null){
+                this.checkBlockNumber();
+            }
+        });
+    }
     async readData() {
+
         let items = await this.state.contract.methods.problemsCount().call();
         const blockNumber = await window.web3.eth.getBlockNumber();
-        console.log(blockNumber)
+
         let timeStamp = await window.web3.eth.getBlock(blockNumber);
         timeStamp=timeStamp.timestamp;
-        console.log(timeStamp);
+
         items=items.toNumber();
-        console.log(items)
+
         for(let i=0; i<items; i++) {
             let item = await this.state.contract.methods.problems(i).call();
+            let solutionsCount = await this.state.contract.methods.solutionsCount.call();
+            solutionsCount=solutionsCount.toNumber()
+            for(let z=0; z<solutionsCount; z++) {
+                let solutions = await this.state.contract.methods.solutions(z).call()
+                this.setState({solutions : [...this.state.solutions, solutions]});
+            }
             if(item.isCompleted === false && item.time>=timeStamp) {
-                this.setState({problems : [...this.state.problems, item]});
+                this.setState({problemsUnFinished : [...this.state.problemsUnFinished, item]});
+            }
+            if(item.isCompleted === true || item.time<timeStamp) {
+                this.setState({problemsFinished : [...this.state.problemsFinished, item]});
             }
 
+
         }
-        console.log(this.state.problems);
+
+
     }
 
 
@@ -153,7 +174,9 @@ class App extends Component {
         this.state = {
             account: null,
             loading: true,
-            problems: [],
+            problemsUnFinished: [],
+            problemsFinished: [],
+            solutions: []
         }
     }
 
@@ -179,7 +202,10 @@ class App extends Component {
                             <Problems balance={this.state.balance}
                                       account={this.state.accountShort}
                                       addProblem={this.addProblem.bind(this)}
-                                      problems={this.state.problems}
+                                      problemsFinished={this.state.problemsFinished}
+                                      problemsUnFinished={this.state.problemsUnFinished}
+                                      sendSolution={this.sendSolution.bind(this)}
+                                      solutions={this.state.solutions}
                             />
                           </Route>
                           <Route path="/" component={MyDefaultComponent} />

@@ -11,6 +11,7 @@ class AllProblems extends React.Component {
         }
     }
     render() {
+
         return(
             <div className="jumbotron container">
                 <h1 className="display-4 text-center font-weight-bolder">List of all unfinished problems.</h1>
