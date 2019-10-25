@@ -150,7 +150,9 @@ class App extends Component {
                               />
                           </Route>
                           <Route exact path="/Problems" >
-                            <Problems />
+                            <Problems balance={this.state.balance}
+                                      account={this.state.accountShort}
+                            />
                           </Route>
                           <Route path="/" component={MyDefaultComponent} />
                       </Switch>}
