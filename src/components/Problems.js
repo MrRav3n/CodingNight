@@ -16,7 +16,8 @@ class Problems extends React.Component {
             <Router>
 
                 <Switch> <Route exact path="/AddProblem">
-                    <AddProblem buyTokens={this.props.buyTokens}/>
+                    <AddProblem buyTokens={this.props.buyTokens}
+                                addProblem={this.props.addProblem}/>
                 </Route>
                     <Route path="/">
                     <MyDefaultProblem account={this.props.account}/>

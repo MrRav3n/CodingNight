@@ -121,6 +121,12 @@ class App extends Component {
         await this.loadAccount();
         this.setState({loading:false});
     }
+    async addProblem( _ammount, _ammountSave,  _time, _title, _problem,  _category) {
+        await this.state.contract.methods.addProblem(_ammount, _ammountSave,  _time, _title, _problem,  _category).send({from: this.state.account}, (error, result) => {
+            if(result!=null){
+                this.checkBlockNumber();
+            }} )
+    }
 
 
     constructor(props) {
@@ -152,6 +158,7 @@ class App extends Component {
                           <Route exact path="/Problems" >
                             <Problems balance={this.state.balance}
                                       account={this.state.accountShort}
+                                      addProblem={this.addProblem.bind(this)}
                             />
                           </Route>
                           <Route path="/" component={MyDefaultComponent} />

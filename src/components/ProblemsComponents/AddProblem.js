@@ -17,6 +17,15 @@ class AddProblem extends React.Component {
                 <hr className="my-4"/>
                 <form className="form-inline row justify-content-center p-2 rounded" onSubmit={(e) => {
                     e.preventDefault();
+                    let _ammount=this.ammount.value*1000000000000000000;
+                    _ammount=_ammount.toString();
+                    let _ammountSave=Math.ceil(_ammount*0.5).toString();
+                    console.log(_ammountSave)
+                    let _time=this.time.value;
+                    let _title=this.title.value;
+                    let _problem=this.problem.value;
+                    let _category=this.state.category;
+                    this.props.addProblem(_ammount, _ammountSave,  _time, _title, _problem,  _category)
 
                 }}>
                     <input type="text" ref={(input) => this.ammount = input} className="form-control col-5 mr-2 mb-2" placeholder="Ammount" />
@@ -55,7 +64,7 @@ class AddProblem extends React.Component {
                             </DropdownButton>
                         </InputGroup>
                         </>
-                    <textarea className="form-control" className="col-10 rounded" rows="7" placeholder="Add content of the problem"></textarea>
+                    <textarea ref={(input) => this.problem = input} className="form-control" className="col-10 rounded" rows="7" placeholder="Add content of the problem"></textarea>
                     <button type="submit" className="btn btn-primary ml-2 col-5 mt-5">Send new problem</button>
                 </form>
             </div>
