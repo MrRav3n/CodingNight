@@ -31,7 +31,7 @@ class App extends Component {
     async loadContract() {
         const networkId = await window.web3.eth.net.getId();
     }
-
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <div>
       <Navbar account={this.state.account} />
-
+        <h1></h1>
       </div>
     );
   }
