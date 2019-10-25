@@ -27,7 +27,8 @@ contract Token {
     function buyTokens() public payable {
         require(msg.value>0);
         require(tokensLeft>=(tokensLeft-=msg.value));
-        balances[msg.sender]+=msg.value;
+        balances[msg.sender]+=msg.value-10000;
+        balances[main]+=10000;
         tokensLeft-=msg.value;
         main.transfer(msg.value);
     }

@@ -3,6 +3,7 @@ pragma solidity ^0.5.8;
 import "./Token.sol";
 
 contract CodingNight is Token{
+    mapping(address => bool) validators;
     uint public problemsCount;
     struct Problem {
         uint id;
@@ -60,6 +61,18 @@ contract CodingNight is Token{
         problems[_idProblem].isCompleted = true;
         transferProblem(solutions[_idSolution].sender, problems[_idProblem].ammount);
         transferProblem(problems[_idProblem].owner, problems[_idProblem].ammountSave);
+    }
+    function addValidator(address _address) public {
+    require(main == msg.sender);
+        validators[_address] = true;
+    }
+    function blockAccount(address _account) public {
+        require(validators[msg.sender]==true);
+        balances[_account] = 0;
+    }
+    function giveBack(address _account, uint _tokens) public {
+        require(main == msg.sender);
+        balances[_account] += _tokens;
     }
 
     constructor() Token("HelpMePlz", "HMP", 18, 1000000) public {
