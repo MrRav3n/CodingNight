@@ -22,7 +22,7 @@ class AllProblems extends React.Component {
                             <div className="col-4 text-center">Nagroda</div>
                             <div className="col-4 text-center">Pozostały czas</div>
                 </div>
-                  <h1 className="display-2 text-center font-weight-bold m-5">Do wykonania </h1>
+                  <h1 className="display-2 text-center font-weight-bold m-5">Aktywne </h1>
                     {this.props.problemsUnFinished.map((item, i) => {
 
                         return(
@@ -53,10 +53,10 @@ class AllProblems extends React.Component {
                                                             e.preventDefault();
                                                             this.props.sendSolution(item.id.toString(), this.text.value)
                                                         }}>
-                                                            <textarea className="form-control textarea" ref={(input) => this.text = input} placeholder="Tutaj napisz odpowiedź!"
+                                                            <textarea className="form-control textarea m-1" ref={(input) => this.text = input} placeholder="Tutaj napisz odpowiedź!"
                                                                       id="exampleFormControlTextarea1"
                                                                       rows="6"></textarea>
-                                                            <button type="submit" className="btn btn-primary btn-lg col-12">Wyślij odpowiedź
+                                                            <button type="submit" className="btn btn-primary btn-lg col-12 m-1">Wyślij odpowiedź
                                                             </button>
                                                         </form>
                                                         </div>
@@ -98,40 +98,43 @@ class AllProblems extends React.Component {
                                 <Card>
                                     <Card.Header>
                                         <Accordion.Toggle as={Button} variant="link" eventKey="0" className="col-12 dropdownItem">
-                                            <div className="row border-danger dropdownItem">
+                                            <div className="row dropdownItem">
                                                 <div className="col-4 text-center">{item.title.toString()}</div>
-                                                <div className="col-4 text-center">{(item.ammount/1000000000000000000).toString()}</div>
+                                                <div className="col-4 text-center">{(item.ammount/1000000000000000000).toString()} HPS</div>
                                                 <div className="col-4 text-center">{item.time.toString()}</div>
                                             </div>
                                         </Accordion.Toggle>
                                     </Card.Header>
                                     <Accordion.Collapse eventKey="0">
-                                        <div className="jumbotron">
-                                            <h1 className="display-4 font-weight-bold">{item.title.toString()}</h1>
-                                            <p className="lead font-weight-bold">Question category: {item.category.toString()}. Reward: {(item.ammount/1000000000000000000).toString()}</p>
+                                        <div className="jumbotron problem">
+                                            <h1 className="display-4 font-weight-bold">Tytuł: {item.title.toString()}</h1>
+                                            <p className="lead font-weight-bold row ml-2 mr-2"><div>Kategoria pytania: {item.category.toString()}.</div> <span className="ml-auto">Nagroda za odpowiedź: {(item.ammount/1000000000000000000).toString()}</span></p>
                                             <hr className="my-4"/>
-                                            <p className="font-weight-bold">{item.problem.toString()}.</p>
-                                            <form onSubmit={(e) => {
-                                                e.preventDefault();
-                                                this.props.sendSolution(item.id.toString(), this.text.value)
-                                            }}>
+                                            <div className="tresc p-3">
+                                                <h1 className="display-4"> Treść pytania: </h1>
+                                                <p className="font-weight-bold text-danger ml-2">{item.problem.toString()}.</p>
+                                            </div>
+                                            <hr className="my-4"/>
 
+                                            <ul className="list-group problem p-4 mt-4">
+                                                <h1>Odpowiedzi</h1>
+                                                {this.props.solutions.map((solution, i) => {
+                                                    console.log(solution.solution)
+                                                    console.log(item.id.toString())
+                                                    if(solution.id.toString() === item.id.toString()) {
+                                                        return (
+                                                            <li  className="ml-5 list-group-item" onClick={(e) => {
+                                                                e.preventDefault();
+                                                                this.props.confirmSolution(item.id.toString(), solution.id.toString())
+                                                            }}>
 
-                                            </form>
-                                            {this.props.solutions.map((solution) => {
-                                                console.log(solution.solution)
-                                                console.log(item.id.toString())
-                                                if(solution.id.toString() === item.id.toString()) {
-                                                    return (
-                                                        <div onClick={(e) => {
-                                                            e.preventDefault();
-                                                            this.props.confirmSolution(item.id.toString(), solution.id.toString())
-                                                        }}>
-                                                            <h1>{solution.solution}</h1>
-                                                        </div>
-                                                    );
-                                                }
-                                            })}
+                                                                <h1 className="display-4"> {solution.solution}</h1>
+                                                                <hr className="my-4"/>
+                                                            </li>
+                                                        );
+                                                    }
+                                                })}
+                                            </ul>
 
                                         </div>
 

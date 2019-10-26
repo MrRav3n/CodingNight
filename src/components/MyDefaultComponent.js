@@ -9,21 +9,21 @@ function MyDefaultComponent() {
                 <h1 className="display-3 a text-center pt-5 pb-5 text-white">Rywalizacja, rozwój i możliwość  zarobku w jednym!</h1>
                 <div className="d-none d-xl-flex align-items-stretch pt-5 mt-5">
                     <div className="col-1"></div>
-                    <Link to="/YourTokens" className="col-5 d-flex linkGlowny justify-content-around  btn bg-warning align-items-center aClass mr-3">
-                        <h1 className=" display-1 a text-center  linkGlowny font-weight-bold ">Portfel</h1>
+                    <Link to="/YourTokens" className="col-5 d-flex linkGlowny1 justify-content-around  btn  align-items-center aClass mr-3">
+                        <h1 className=" display-1 a text-center   font-weight-bold ">Portfel</h1>
                     </Link>
-                    <Link to="/Problems" className="col-5 d-flex linkGlowny btn bg-danger justify-content-around align-items-around aClass">
-                        <h1 className="display-1 a text-center  linkGlowny font-weight-bold ">Problemy do rozwiązania</h1>
+                    <Link to="/Problems" className="col-5 d-flex linkGlowny2 btn  justify-content-around align-items-around aClass">
+                        <h1 className="display-1 a text-center  font-weight-bold ">Problemy do rozwiązania</h1>
                     </Link>
 
                 </div>
                 <div className=" d-xl-none align-items-stretch pt-5 mt-5">
                     <div className="col-1"></div>
-                    <Link to="/YourTokens" className="col-12 mb-3 m-2d-flex linkGlowny justify-content-around  btn bg-warning align-items-center aClass mr-3">
-                        <h1 className=" display-4 a text-center  linkGlowny font-weight-bold ">Portfel</h1>
+                    <Link to="/YourTokens" className="col-12 mb-3 m-2d-flex linkGlowny1 justify-content-around  btn align-items-center aClass mr-3">
+                        <h1 className=" display-4 a text-center   font-weight-bold ">Portfel</h1>
                     </Link>
-                    <Link to="/Problems" className="col-12 d-flex linkGlowny btn bg-danger justify-content-around align-items-around aClass">
-                        <h1 className="display-4 a text-center  linkGlowny font-weight-bold ">Problemy do rozwiązania</h1>
+                    <Link to="/Problems" className="col-12 d-flex linkGlowny2 btn  justify-content-around align-items-around aClass">
+                        <h1 className="display-4 a text-center   font-weight-bold ">Problemy do rozwiązania</h1>
                     </Link>
 
                 </div>
@@ -59,7 +59,7 @@ function MyDefaultComponent() {
                     </div>
                 </div>
             </div>
-            <div className="container">
+            <div className="container  mb-5">
                 <div className="row align-items-center">
                     <div className="col-lg-6 order-lg-2">
                         <div className="p-5">
@@ -69,7 +69,7 @@ function MyDefaultComponent() {
                     <div className="col-lg-6 order-lg-1">
                         <div className="p-5">
                             <h2 className="display-4 font-weight-bold">Niezawodny system</h2>
-                            <h4 className="font-weight-bold">Stuprocentowa gwarancja bezpieczeństwa dzięki technologii blockchain i systemowi walidacji</h4>
+                            <h4 className="font-weight-bold ">Stuprocentowa gwarancja bezpieczeństwa dzięki technologii blockchain i systemowi walidacji</h4>
                         </div>
                     </div>
                 </div>

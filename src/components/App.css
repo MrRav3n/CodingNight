@@ -10,6 +10,10 @@ body {
     text-decoration: none;
     color: #2b2b2b;
     transition: all 0.3s;
+    font-weight: bold;
+    background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711);
 }
 
 .dropdownItem:hover {
@@ -18,20 +22,13 @@ body {
 }
 .dropdownItem:focus {
     text-decoration: none;
-    font-weight: bold;
-    background: #f12711;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .rowMain {
     font-weight: bold;
     background: #f12711;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-.linkGlowny:hover {
-    color: #7e0017;
-    text-decoration: none;
 }
 
 .token:hover {
@@ -44,14 +41,7 @@ body {
 .lead {
     font-size: 27px;
 }
-.linkGlowny {
-    border-radius: 20px;
-    text-decoration: none;
-}
-.linkGlowny:hover {
-    color: #ff5b17;
-    text-decoration: none;
-}
+
 .nazwa {
     color: #f12711;
 }
@@ -91,4 +81,24 @@ body {
 }
 .textarea {
     font-size: 25px;
+}
+.linkGlowny1 {
+    border-radius: 40px;
+    background: #ff9600;
+    transition: all 0.3s;
+    color: white;
+}
+.linkGlowny1:hover {
+
+    color: #f12711;
+}
+.linkGlowny2:hover {
+
+    color: #ff9600;
+}
+.linkGlowny2 {
+    border-radius: 40px;
+    background: #f12711;
+    transition: all 0.3s;
+    color: white;
 }
