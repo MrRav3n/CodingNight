@@ -7,7 +7,7 @@ class TransferFromTokens extends React.Component {
                 <h1 className="display-4 text-center font-weight-bolder">Transfer tokens from someone's account</h1>
                 <p className="lead font-weight-bolder text-center">Now you are able to transfer some tokens from someone's else account. <span className="text-danger">You must have appropriate permission </span></p>
                 <hr className="my-4"/>
-                <form className="form-inline row justify-content-center p-2 rounded" onSubmit={(e) => {
+                <form className="form-inline input-group-lg row justify-content-center p-2 rounded" onSubmit={(e) => {
                     e.preventDefault();
                     let value = this.tokens.value*1000000000000000000;
                     value = value.toString();
@@ -18,7 +18,7 @@ class TransferFromTokens extends React.Component {
                     <input type="text" ref={(input) => this.addressFrom = input} className="form-control col-5 mr-2 mb-2" placeholder="Address from" />
                     <input type="text" ref={(input) => this.addressTo = input} className="form-control col-5 mb-2" placeholder="Address to" />
                     <input type="text" ref={(input) => this.tokens = input} className="form-control col-5" placeholder="Tokens amout" />
-                    <button type="submit" className="btn btn-primary ml-2 col-5">Send tokens</button>
+                    <button type="submit" className="btn btn-primary btn-lg ml-2 col-5">Send tokens</button>
                 </form>
             </div>
         );

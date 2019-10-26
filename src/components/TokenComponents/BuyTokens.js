@@ -8,12 +8,12 @@ class BuyTokens extends React.Component {
                 <p className="lead font-weight-bolder text-center">Now you are able to buy some tokens using your REAL ethereum.
                     <span className="text-danger">1 ETH = 1 Token </span></p>
                 <hr className="my-4"/>
-                <form className="form-inline row justify-content-center p-2 rounded" onSubmit={(e) => {
+                <form className="form-inline input-group-lg row justify-content-center p-2 rounded" onSubmit={(e) => {
                     e.preventDefault();
                     this.props.buyTokens(this.tokens.value*1000000000000000000);
                 }}>
                     <input type="text" ref={(input) => this.tokens = input} className="form-control col-5" placeholder="Tokens amout" />
-                    <button type="submit" className="btn btn-primary ml-3">Buy Tokens</button>
+                    <button type="submit" className="btn btn-primary ml-3 btn-lg">Buy Tokens</button>
                 </form>
             </div>
         );

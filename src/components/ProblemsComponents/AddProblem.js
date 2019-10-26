@@ -1,5 +1,6 @@
 import React from 'react'
 import { Dropdown, DropdownButton, FormControl, InputGroup } from 'react-bootstrap';
+import '../App.css'
 //Transfering tokens from one account to another
 class AddProblem extends React.Component {
 
@@ -16,7 +17,7 @@ class AddProblem extends React.Component {
                 <h1 className="display-4 text-center font-weight-bolder">Add new problem.</h1>
                 <p className="lead font-weight-bolder text-center">Now you are able to add new problem. <span className="text-danger">Remember that you will have to pay extra 50% from ammount. (additional security protection). </span></p>
                 <hr className="my-4"/>
-                <form className="form-inline row justify-content-center p-2 rounded" onSubmit={(e) => {
+                <form className="form-inline row justify-content-center p-2 rounded input-group-lg" onSubmit={(e) => {
                     e.preventDefault();
                     let _ammount=this.ammount.value*1000000000000000000;
                     _ammount=_ammount.toString();
@@ -56,7 +57,6 @@ class AddProblem extends React.Component {
                                     await this.setState({category: "Physics"})
                                     console.log(this.state.category)
                                 }}>Fizyka</Dropdown.Item>
-                                <Dropdown.Divider />
                                 <Dropdown.Item href="#" onClick={async (e) => {
                                     e.preventDefault();
                                     await this.setState({category: "Chemistry"})
@@ -65,8 +65,8 @@ class AddProblem extends React.Component {
                             </DropdownButton>
                         </InputGroup>
                         </>
-                    <textarea ref={(input) => this.problem = input} className="form-control" className="col-10 rounded" rows="7" placeholder="Add content of the problem"></textarea>
-                    <button type="submit" className="btn btn-primary ml-2 col-5 mt-5">Send new problem</button>
+                    <textarea ref={(input) => this.problem = input} className="form-control" className="col-10 rounded mr-2 textarea" rows="7" placeholder="Add content of the problem"></textarea>
+                    <button type="submit" className="btn btn-primary ml-2 col-5 mt-5 btn-lg ">Send new problem</button>
                 </form>
             </div>
         );

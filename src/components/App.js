@@ -162,11 +162,43 @@ class App extends Component {
         }
         for(let i=0; i<items; i++) {
             let item = await this.state.contract.methods.problems(i).call();
+            console.log(item.time);
+            item.time = item.time-timeStamp;
+            if(item.time<0) {
+                item.time=0;
+            }
+            console.log(item.time.toString())
+            if(item.isCompleted === false && item.time>0) {
+                let hours = Math.floor( item.time/3600)
+                let minutes = Math.floor(( item.time-(hours*3600))/60)
+                let secounds =  item.time-(hours*3600)-(minutes*60);
+                if(hours<10) {
+                    hours = '0'+hours;
+                }
+                if(secounds<10) {
+                    secounds = '0'+secounds;
+                }
+                if(minutes<10) {
+                    minutes = '0'+minutes;
+                }
+                item.time = hours + ':' + minutes + ':' + secounds;
 
-            if(item.isCompleted === false && item.time>=timeStamp) {
                 this.setState({problemsUnFinished : [...this.state.problemsUnFinished, item]});
             }
-            if(item.isCompleted === true || item.time<timeStamp) {
+            if(item.isCompleted === true || item.time===0) {
+                let hours = Math.floor( item.time/3600)
+                let minutes = Math.floor(( item.time-(hours*3600))/60)
+                let secounds =  item.time-(hours*3600)-(minutes*60);
+                if(hours<10) {
+                    hours = '0'+hours;
+                }
+                if(secounds<10) {
+                    secounds = '0'+secounds;
+                }
+                if(minutes<10) {
+                    minutes = '0'+minutes;
+                }
+                item.time = hours + ':' + minutes + ':' + secounds;
                 this.setState({problemsFinished : [...this.state.problemsFinished, item]});
             }
 

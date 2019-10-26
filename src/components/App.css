@@ -1,28 +1,94 @@
 /* Styles go here */
+/*  CC BY-SA 3.0 - Subtle Patterns © Toptal Designers.*/
 body {
-    background: #b92b27;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: url("../img/cool-background.png");
+
 }
 .dropdownItem {
-    font-size: 25px;
+    font-weight: bold;
+    font-size: 35px;
     text-decoration: none;
-    color: #f85a23;
+    color: #2b2b2b;
+    transition: all 0.3s;
 }
 
 .dropdownItem:hover {
     text-decoration: none;
-    color: #933b17;
+    color: #4b4b4b;
 }
 .dropdownItem:focus {
     text-decoration: none;
-    border: #933b17 solid 2px;
+    font-weight: bold;
+    background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .rowMain {
     font-weight: bold;
     background: #f12711;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.linkGlowny:hover {
+    color: #7e0017;
+    text-decoration: none;
+}
 
+.token:hover {
+    text-decoration: none;
+}
+.token {
+    border-radius: 20px;
+    text-decoration: none;
+}
+.lead {
+    font-size: 27px;
+}
+.linkGlowny {
+    border-radius: 20px;
+    text-decoration: none;
+}
+.linkGlowny:hover {
+    color: #ff5b17;
+    text-decoration: none;
+}
+.nazwa {
+    color: #f12711;
+}
+.form-inline {
+    background: #b92b27;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
+.btn-lgg {
+    border-radius: 20px;
+}
+.token {
+    color: #403735;
+    border: 5px solid #403735;
+    transition: all 0.5s;
+}
+.token:hover {
+    color: white;
+    background:  #403735;
+}
+.tresc {
+    border-radius: 20px;
+    border: 2px solid #c65418;
+}
+.problem {
+    border-radius: 20px;
+    border: 2px solid #c65418;
+}
+.list-group-item {
+    font-weight: bold;
+
+}
+.list-group-item:hover {
+    cursor: pointer;
+
+}
+.textarea {
+    font-size: 25px;
 }
