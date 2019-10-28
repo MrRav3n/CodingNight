@@ -6,7 +6,7 @@ function MyDefaultComponent() {
     return (
         <>
             <div className="align-items-stretch m-0">
-                <h1 className="display-3 a text-center pt-5 pb-5 text-white">Rywalizacja, rozwój i możliwość  zarobku w jednym!</h1>
+                <h1 className="display-3 a text-center pt-5 pb-5 text-black font-weight-bold">Rywalizacja, rozwój i możliwość  zarobku w jednym!</h1>
                 <div className="d-none d-xl-flex align-items-stretch pt-5 mt-5">
                     <div className="col-1"></div>
                     <Link to="/YourTokens" className="col-5 d-flex linkGlowny1 justify-content-around  btn  align-items-center aClass mr-3">
@@ -38,8 +38,8 @@ function MyDefaultComponent() {
                     </div>
                     <div className="col-lg-6 order-lg-1">
                         <div className="p-5">
-                            <h2 className="display-4 font-weight-bold">Znajdź odpowiedź w krótkim czasie...</h2>
-                            <h4 className="font-weight-bold">Ustal dogodną stawkę za zagadkę logiczną, aby przyśpieszyć proces! .</h4>
+                            <h2 className="display-4 font-weight-bold">Znajdź odpowiedź w  jak najkrótszym czasie...</h2>
+                            <h4 className="font-weight-bold">Ustal dogodną stawkę za zagadkę logiczną, aby przyśpieszyć proces!</h4>
                         </div>
                     </div>
                 </div>

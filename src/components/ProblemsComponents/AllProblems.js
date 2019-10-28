@@ -14,8 +14,8 @@ class AllProblems extends React.Component {
         return(
             <span>
             <div className="jumbotron container">
-                <h1 className="display-4 text-center font-weight-bolder">List of all unfinished problems.</h1>
-                <p className="lead font-weight-bolder text-center">Look for and add solutions to problems. <span className="text-danger">Remember that you will get paid if your solution will be well.</span></p>
+                <h1 className="display-4 text-center font-weight-bolder">Lisa wyzwań, z którymi możesz się zmierzyć</h1>
+                <p className="lead font-weight-bolder text-center">Rozwiązuj zadania a zostaniesz <span className="text-danger">dobrze wynagrodzony!</span></p>
                 <hr className="my-4"/>
                 <div className="row display-4 rowMain rounded">
                             <div className="col-4 text-center">Tytuł</div>
@@ -33,7 +33,7 @@ class AllProblems extends React.Component {
                                                     <Accordion.Toggle as={Button} variant="link" eventKey="0" className="col-12 dropdownItem">
                                                         <div className="row dropdownItem">
                                                             <div className="col-4 text-center">{item.title.toString()}</div>
-                                                            <div className="col-4 text-center">{(item.ammount/1000000000000000000).toString()} HPS</div>
+                                                            <div className="col-4 text-center">{(item.ammount/1000000000000000000).toString()} HMP</div>
                                                             <div className="col-4 text-center">{item.time.toString()}</div>
                                                         </div>
                                                     </Accordion.Toggle>
@@ -41,7 +41,7 @@ class AllProblems extends React.Component {
                                                 <Accordion.Collapse eventKey="0">
                                                     <div className="jumbotron problem">
                                                         <h1 className="display-4 font-weight-bold">Tytuł: {item.title.toString()}</h1>
-                                                        <p className="lead font-weight-bold row ml-2 mr-2"><div>Kategoria pytania: {item.category.toString()}.</div> <span className="ml-auto">Nagroda za odpowiedź: {(item.ammount/1000000000000000000).toString()}</span></p>
+                                                        <p className="lead font-weight-bold row ml-2 mr-2"><div>Kategoria pytania: {item.category.toString()}.</div> <span className="ml-auto">Nagroda za odpowiedź: {(item.ammount/1000000000000000000).toString()} HPZ</span></p>
                                                         <hr className="my-4"/>
                                                         <div className="tresc p-3">
                                                         <h1 className="display-4"> Treść pytania: </h1>
@@ -100,7 +100,7 @@ class AllProblems extends React.Component {
                                         <Accordion.Toggle as={Button} variant="link" eventKey="0" className="col-12 dropdownItem">
                                             <div className="row dropdownItem">
                                                 <div className="col-4 text-center">{item.title.toString()}</div>
-                                                <div className="col-4 text-center">{(item.ammount/1000000000000000000).toString()} HPS</div>
+                                                <div className="col-4 text-center">{(item.ammount/1000000000000000000).toString()} HMP</div>
                                                 <div className="col-4 text-center">{item.time.toString()}</div>
                                             </div>
                                         </Accordion.Toggle>
@@ -108,7 +108,7 @@ class AllProblems extends React.Component {
                                     <Accordion.Collapse eventKey="0">
                                         <div className="jumbotron problem">
                                             <h1 className="display-4 font-weight-bold">Tytuł: {item.title.toString()}</h1>
-                                            <p className="lead font-weight-bold row ml-2 mr-2"><div>Kategoria pytania: {item.category.toString()}.</div> <span className="ml-auto">Nagroda za odpowiedź: {(item.ammount/1000000000000000000).toString()}</span></p>
+                                            <p className="lead font-weight-bold row ml-2 mr-2"><div>Kategoria pytania: {item.category.toString()}.</div> <span className="ml-auto">Nagroda za odpowiedź: {(item.ammount/1000000000000000000).toString()} HPZ</span></p>
                                             <hr className="my-4"/>
                                             <div className="tresc p-3">
                                                 <h1 className="display-4"> Treść pytania: </h1>

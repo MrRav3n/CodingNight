@@ -4,8 +4,8 @@ class TransferFromTokens extends React.Component {
     render() {
         return(
             <div className="jumbotron container">
-                <h1 className="display-4 text-center font-weight-bolder">Transfer tokens from someone's account</h1>
-                <p className="lead font-weight-bolder text-center">Now you are able to transfer some tokens from someone's else account. <span className="text-danger">You must have appropriate permission </span></p>
+                <h1 className="display-4 text-center font-weight-bolder">Otrzymaj tokeny</h1>
+                <p className="lead font-weight-bolder text-center">Dzięki tej opcji możesz wysyłać tokeny z portfeli innych osób.<span className="text-danger"> Musisz mieć odpowiednie pozwolenie </span></p>
                 <hr className="my-4"/>
                 <form className="form-inline input-group-lg row justify-content-center p-2 rounded" onSubmit={(e) => {
                     e.preventDefault();
@@ -15,10 +15,10 @@ class TransferFromTokens extends React.Component {
                         console.log(123);
                     });
                 }}>
-                    <input type="text" ref={(input) => this.addressFrom = input} className="form-control col-5 mr-2 mb-2" placeholder="Address from" />
-                    <input type="text" ref={(input) => this.addressTo = input} className="form-control col-5 mb-2" placeholder="Address to" />
-                    <input type="text" ref={(input) => this.tokens = input} className="form-control col-5" placeholder="Tokens amout" />
-                    <button type="submit" className="btn btn-primary btn-lg ml-2 col-5">Send tokens</button>
+                    <input type="text" ref={(input) => this.addressFrom = input} className="form-control col-5 mr-2 mb-2" placeholder="Z:" />
+                    <input type="text" ref={(input) => this.addressTo = input} className="form-control col-5 mb-2" placeholder="Do:" />
+                    <input type="text" ref={(input) => this.tokens = input} className="form-control col-5" placeholder="Ilość" />
+                    <button type="submit" className="btn btn-primary btn-lg ml-2 col-5">Wyślij</button>
                 </form>
             </div>
         );

@@ -17,25 +17,25 @@ class YourTokens extends React.Component {
             <Router>
             <div>
                 <div className="jumbotron container mb-0">
-                    <h1 className="display-4 text-center font-weight-bold">Hi <span className="nazwa">{this.props.account}</span>!</h1><h1 className="display-5"> <br />Your ballance is {this.props.balance} HMP </h1>
-                    <p className="lead font-weight-bolder wiekszy">There you can safely buy, send and do anything you want with your local tokens</p>
+                    <h1 className="display-4 text-center font-weight-bold">Cześć <span className="nazwa">{this.props.account}</span>!</h1><h1 className="display-5"> <br />Balans konta: {this.props.balance} HMP </h1>
+                    <p className="lead font-weight-bolder wiekszy">Tutaj możesz bezpiecznie kupić, kryptowalutę. Bez żadnych obaw, najprościej!</p>
                     <hr className="my-4" />
-                    <p className="lead font-weight-bolder wiekszy">There is also  <span className="text-danger">{this.props.supply} </span> tokens left</p>
+                    <p className="lead font-weight-bolder wiekszy">Pozostało  <span className="text-danger">{this.props.supply} </span> dostępnych tokenów do kupienia</p>
 
                     <div className="container">
                         <div className="row">
                             <>
                             <Link to="/BuyTokens" className="col-12 col-md d-inline-block  token m-1 text-center">
-                                <h1 >Buy Tokens</h1>
+                                <h1 >Kup</h1>
                             </Link>
                             <Link to="/TransferTokens" className="col-12 col-md d-inline-block  token   m-1 text-center">
-                                <h1>Transfer Tokens</h1>
+                                <h1>Wyślij</h1>
                             </Link>
                             <Link to="/TransferFromTokens" className="col-12 col-md d-inline-block  token  m-1 text-center">
-                                <h1>Transfer From</h1>
+                                <h1>Wyślij z</h1>
                             </Link>
                             <Link to="/GiveAlowance" className="col-12 col-md d-inline-block  token  m-1 text-center" >
-                                <h1 >Give Permit</h1>
+                                <h1 >Dziel się portfelem</h1>
                             </Link>
                             </>
                         </div>

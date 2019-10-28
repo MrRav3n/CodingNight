@@ -9,8 +9,8 @@ class MyDefaultProblem extends React.Component {
 
             <div>
                 <div className="jumbotron container mb-0">
-                    <h1 className="display-4 text-center font-weight-bold">Hi <span className="nazwa">{this.props.account}</span>!</h1><h1 className="display-5"> <br />Your ballance is <span className="text-danger">{this.props.balance}</span> HMP </h1>
-                    <p className="lead font-weight-bolder wiekszy">There you can add, search for and solve others problems.</p>
+                    <h1 className="display-4 text-center font-weight-bold">Cześć <span className="nazwa">{this.props.account}</span>!</h1><h1 className="display-5"> <br />Stan twojego konta wynosi <span className="text-danger">{this.props.balance}</span> HMP </h1>
+                    <p className="lead font-weight-bolder wiekszy">W tym menu możesz wybrać aktywność jaką jesteś zainteresowany(a), więc:</p>
                     <hr className="my-4" />
 
 
@@ -18,10 +18,10 @@ class MyDefaultProblem extends React.Component {
                     <div className="row">
                         <>
                             <Link to="/AddProblem" className="col-12 col-md btn btn-lgg d-inline-block token m-1 text-center">
-                                <h1>Add Problem</h1>
+                                <h1>Wystaw ogłoszenie</h1>
                             </Link>
                             <Link to="/AllProblems" className="col-12 col-md btn btn-lgg d-inline-block token m-1 text-center">
-                                <h1>Check All Problems</h1>
+                                <h1>Przeglądaj ogłoszenia</h1>
                             </Link>
                         </>
                     </div>
